@@ -2,7 +2,6 @@
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { Separator } from "@/components/ui/separator";
-import { ProfileForm } from "./profile-form";
 import { console } from "inspector";
 import { authOptions } from "@/server/auth";
 import { Metadata } from "next";
@@ -21,15 +20,10 @@ export default async function SettingsProfilePage() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="p-4">
       <div>
         <h3 className="text-lg font-medium">پروفایل</h3>
-        <p className="text-sm text-muted-foreground">
-          اطلاعات شما که کاربران روی سایت میبینند
-        </p>
       </div>
-      <Separator />
-      <ProfileForm />
     </div>
   );
 }
