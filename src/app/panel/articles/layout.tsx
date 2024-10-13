@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 const sidebarNavItems = [
     {
         title: "نوشته ها",
-        href: "/panel/articles/posts",
+        href: "/panel/articles/(posts)",
     },
     {
         title: "دسته بندی ها",
-        href: "/panel/articles/categories",
+        href: "/panel/articles/categories.tsx",
     },
     {
         title: "برچسب ها",

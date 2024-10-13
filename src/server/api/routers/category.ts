@@ -5,7 +5,7 @@ import {
 } from "@/server/api/trpc";
 
 export const categoryRouter = createTRPCRouter({
-    // Get all categories, optionally filter by name or title
+    // Get all categories.tsx, optionally filter by name or title
     getAll: protectedProcedure
         .input(z.object({ name: z.string().optional(), title: z.string().optional() }))
         .query(async ({ ctx, input }) => {
@@ -29,7 +29,7 @@ export const categoryRouter = createTRPCRouter({
         .query(async ({ ctx, input }) => {
             const { name, title, cursor, limit } = input;
 
-            // Fetch the categories from the database, filtered by name and title if provided
+            // Fetch the categories.tsx from the database, filtered by name and title if provided
             const categories = await ctx.db.category.findMany({
                 where: {
                     AND: [
@@ -44,7 +44,7 @@ export const categoryRouter = createTRPCRouter({
                 },
             });
 
-            // Check if there are more categories beyond the current limit
+            // Check if there are more categories.tsx beyond the current limit
             let nextCursor: typeof cursor | undefined = undefined;
             if (categories.length > limit) {
                 const nextItem = categories.pop(); // Remove the extra item from the result
@@ -103,7 +103,7 @@ export const categoryRouter = createTRPCRouter({
             return { success: true };
         }),
 
-    // Fetch posts by category name
+    // Fetch (posts) by category name
     getPostsByCategoryName: protectedProcedure
         .input(z.object({ name: z.string() }))
         .query(async ({ ctx, input }) => {

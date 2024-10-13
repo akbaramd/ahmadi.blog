@@ -16,7 +16,7 @@ interface Category {
     title: string;
 }
 
-// Component to handle the categories
+// Component to handle the categories.tsx
 export default function CategoriesList() {
     const [open, setOpen] = useState(false);
     const [editOpen, setEditOpen] = useState(false); // For edit modal
@@ -28,7 +28,7 @@ export default function CategoriesList() {
     const { toast } = useToast();
     const parentRef = useRef<HTMLDivElement>(null);
 
-    // Fetch categories with combined search on name and title
+    // Fetch categories.tsx with combined search on name and title
     const { data: categories, fetchNextPage, hasNextPage, refetch } = api.category.getAllInfinite.useInfiniteQuery(
         {
             name: searchTerm,
@@ -42,7 +42,7 @@ export default function CategoriesList() {
 
     const createCategory = api.category.create.useMutation({
         onSuccess: async () => {
-            await refetch(); // Refetch categories after adding a new one
+            await refetch(); // Refetch categories.tsx after adding a new one
             toast({ title: "دسته‌بندی جدید با موفقیت اضافه شد!" });
             setOpen(false); // Close modal on success
         },
@@ -53,7 +53,7 @@ export default function CategoriesList() {
 
     const updateCategory = api.category.update.useMutation({
         onSuccess: async () => {
-            await refetch(); // Refetch categories after updating
+            await refetch(); // Refetch categories.tsx after updating
             toast({ title: "دسته‌بندی با موفقیت به‌روزرسانی شد!" });
             setEditOpen(false); // Close modal on success
         },
@@ -64,7 +64,7 @@ export default function CategoriesList() {
 
     const deleteCategory = api.category.delete.useMutation({
         onSuccess: async () => {
-            await refetch(); // Refetch categories after deletion
+            await refetch(); // Refetch categories.tsx after deletion
             toast({ title: "دسته‌بندی با موفقیت حذف شد!" });
             setConfirmOpen(false); // Close modal on success
         },
@@ -145,7 +145,7 @@ export default function CategoriesList() {
                 <Button onClick={() => refetch()}>جستجو</Button>
             </div>
 
-            {/* List of categories in a card layout with virtualization */}
+            {/* List of categories.tsx in a card layout with virtualization */}
             <div ref={parentRef} className="h-[400px] overflow-y-auto">
                 <div style={{ height: `${rowVirtualizer.getTotalSize()}px`, position: "relative" }}>
                     {rowVirtualizer.getVirtualItems().map((virtualRow) => {

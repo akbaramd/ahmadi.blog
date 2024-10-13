@@ -66,7 +66,7 @@ export const tagRouter = createTRPCRouter({
             return { success: true };
         }),
 
-    // Fetch posts by tag name
+    // Fetch (posts) by tag name
     getPostsByTagName: protectedProcedure
         .input(z.object({ name: z.string() }))
         .query(async ({ ctx, input }) => {

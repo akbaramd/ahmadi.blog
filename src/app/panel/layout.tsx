@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const mainNavItems = [
     {
         title: "مقالات",
-        href: "/panel/articles/posts",
+        href: "/panel/articles/(posts)",
     },
     {
         title: "تنظیمات",
